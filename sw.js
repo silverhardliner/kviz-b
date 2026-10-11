@@ -1,6 +1,6 @@
 // Offline cache: stale-while-revalidate, so the app works in the car without signal
 // and picks up new questions on the next online start.
-const CACHE = "kvizb-20261010133727";
+const CACHE = "kvizb-20261011105751";
 const FILES = ["./", "index.html", "app.js", "questions.json", "prehled.html",
                "manifest.webmanifest", "icon.svg", "icon-180.png", "icon-192.png", "icon-512.png"];
 self.addEventListener("install", e => {
