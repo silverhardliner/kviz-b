@@ -301,8 +301,12 @@ async function exportMistakes() {
 /* ---------- boot ---------- */
 async function boot() {
   try {
-    const r = await fetch("questions.json"); QS = await r.json();
-  } catch (e) { $app.innerHTML = `<p>Otázky se nepodařilo načíst. Zkus to znovu s připojením.</p>`; return; }
+    const r = await fetch("questions.json", { cache: "no-cache" }); QS = await r.json();
+    if (!Array.isArray(QS) || !QS.length) throw new Error("prázdný soubor otázek");
+  } catch (e) {
+    $app.innerHTML = `<div class="card"><p><b>Otázky se nepodařilo načíst.</b></p><p class="muted">Připoj se k internetu a zavři a znovu otevři aplikaci. (${esc(e.message || e)})</p><button class="btn primary" onclick="location.reload()">Zkusit znovu</button></div>`;
+    return;
+  }
   BYID = Object.fromEntries(QS.map(q => [q.id, q]));
   home();
 }
