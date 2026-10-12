@@ -1,6 +1,6 @@
 // Offline cache. Data a stránky: nejdřív síť (vždy čerstvé otázky), bez signálu z cache.
 // Ostatní soubory (ikony, js): z cache a na pozadí aktualizovat.
-const CACHE = "kvizb-20261011110051";
+const CACHE = "kvizb-20261012152655";
 const FILES = ["./", "index.html", "app.js", "questions.json", "prehled.html",
                "manifest.webmanifest", "icon.svg", "icon-180.png", "icon-192.png", "icon-512.png"];
 self.addEventListener("install", e => {
